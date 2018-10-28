@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    getto-repository-sequel (0.1.0)
+    getto-repository-sequel (1.0.0)
       getto-repository (~> 1.0.0)
       sequel (~> 5.13.0)
 
