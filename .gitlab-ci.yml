@@ -1,0 +1,12 @@
+image: ruby:2.5.1
+
+cache:
+  paths:
+    - vendor/
+
+test:
+  except:
+    - tags
+  script:
+    - bundle
+    - bundle exec rake
