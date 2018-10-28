@@ -1,0 +1,12 @@
+sudo: false
+language: ruby
+rvm:
+  - 2.5.1
+before_install: gem install bundler -v 1.16.2
+deploy:
+  provider: rubygems
+  gem: getto-repository-sequel
+  on:
+    tags: true
+  api_key:
+    secure: "U089eNM+M344nDmn4liBEjPuScKV2KFzdoC4Ax1fyaM9knrYmOCleFJdr6QRDpxq+CDgrIqgqza9x5GAh73LWaEgzUScKUj56zvR2D5Zto7eRZW1ZSR1w4pKUnMDALN9uO5HjYVqHsKAxk6bbARldAmX3JbpsSAokWEvSxj5ZwmoIXH8f6XTrfRInDbLHvSYYJCg6oUUmGIqyPRw3pUrVAkdoGoy4fEbmxexyHUPuPH0Gj6qDEIxn8RLEk4sOf6zNIlD46zLOnJjLaBh6jGferRvvEv9eUfi6CWppsGXlQz08D2CrL1FMBFHN3oAYOOjTv2y6nEgdM1KJevBCir+bob1Hq7D/OdoiYQB83PIuXKZ0ODXtXF05nEkThKS6eX+gUsTM4C3BJOq8lt/QbT7LePpCrWq/iBbFysyfTiFtCj23+vUAXv/rkxbthxC954oqDR9INY76hAOYHKgiz9vG61SqVZMMpCM/A7KJw7haNpmaYANCpskBANxaFk34BPXMYV4U2xJJy/2YHPTbLTwSjjpAUiRM6lZZSocB/ltONNK9sG+Nupxmx/LU60DsArAzKC2P+SFYOx53/mb3kneJBiNZG2YoLXAd7MshBdTKmfk2pox3QD6JcYWC5Lt7dD1cSgh9KtX69ak7hag/Q0x4xWn6mDI9i+L/9I3Oo0Fecc="
