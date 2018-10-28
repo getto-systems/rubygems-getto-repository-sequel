@@ -28,7 +28,8 @@ Gem::Specification.new do |spec|
   spec.extra_rdoc_files = ['README.md', 'LICENSE']
   spec.rdoc_options = %w[--title Getto::Repository::Sequel --main README.md]
 
-  spec.add_runtime_dependency "getto-repository", "~> 1.0.0"
+  spec.add_runtime_dependency "getto-initialize_with", "~> 1.0"
+  spec.add_runtime_dependency "getto-repository", "~> 1.0"
   spec.add_runtime_dependency "sequel", "~> 5.13.0"
 
   spec.add_development_dependency "bundler", "~> 1.16"
