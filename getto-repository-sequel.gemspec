@@ -12,7 +12,7 @@ Gem::Specification.new do |spec|
 
   spec.summary       = %q{Repository helper for Sequel}
   spec.description   = %q{Repository helper for Sequel}
-  spec.homepage      = "https://github.com/getto-systems/getto-repository-sequel"
+  spec.homepage      = "https://github.com/getto-systems/rubygems-getto-repository-sequel"
   spec.license       = "MIT"
 
   # Specify which files should be added to the gem when it is released.
