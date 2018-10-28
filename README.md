@@ -18,7 +18,10 @@ require "sequel"
 db = Sequep.connect config
 
 repository = Repository.new(db)
-repository.account_exists?
+
+repository.transaction do
+  repository.account_exists?
+end
 ```
 
 - misc: search helper
@@ -143,6 +146,7 @@ ORDER BY
 ## Requirements
 
 - developed on ruby: 2.5.1
+- [Sequel](http://sequel.jeremyevans.net/)
 
 
 <a id="Usage"></a>
@@ -283,6 +287,12 @@ w.search "active.in", &w.in(
 ```
 
 ```sql
+-- { "active.in": ["True"] }
+WHERE
+  (
+    (`account_actives`.`account_id` IS NOT NULL)
+  )
+
 -- { "active.in": ["True","False"] }
 WHERE
   (
@@ -291,7 +301,7 @@ WHERE
   )
 ```
 
-- clause by block
+- create where-clause by block
 
 ```ruby
 w.search("active.is"){|val|
@@ -308,7 +318,7 @@ WHERE
 
 -- { "active.is": "False" }
 WHERE
-  (1 = 1) -- if block returns nil, no where-clauses
+  (1 = 1) -- if block returns nil, create no where-clauses
 ```
 
 ## Install
