@@ -1,3 +1,7 @@
+# Version : 1.0.1
+
+fix: metadata
+
 # Version : 1.0.0
 
 version 1.0.0
