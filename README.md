@@ -47,6 +47,9 @@ search = Getto::Repository::Search::Sequel.new(
     "name.cont_any": "カナ",
 
     "active.in": ["True"],
+
+    "date.gteq": "2018-10-01",
+    "date.lteq": "2018-10-31",
   },
 )
 
@@ -70,6 +73,9 @@ where = search.where do |w|
       "False" => false,
     )
   )
+
+  w.search "date.gteq", &w.gteq(::Sequel[:accounts][:created_at])
+  w.search "date.lteq", &w.lteq(::Sequel[:accounts][:created_at])
 end
 
 order = search.order do |o|
@@ -166,6 +172,34 @@ end
 -- { "id.eq": "1" }
 WHERE
   (`accounts`.`id` = 1)
+```
+
+- less than or equals to
+
+```ruby
+where = search.where do |w|
+  w.search "date.lteq", &w.lteq(::Sequel[:accounts][:created_at])
+end
+```
+
+```sql
+-- { "date.lteq": "2018-10-01" }
+WHERE
+  (`accounts`.`created_at` <= "2018-10-01")
+```
+
+- greater than or equals to
+
+```ruby
+where = search.where do |w|
+  w.search "date.gteq", &w.gteq(::Sequel[:accounts][:created_at])
+end
+```
+
+```sql
+-- { "date.gteq": "2018-10-01" }
+WHERE
+  (`accounts`.`created_at` >= "2018-10-01")
 ```
 
 - contains
