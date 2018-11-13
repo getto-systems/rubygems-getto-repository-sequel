@@ -64,6 +64,14 @@ module Getto
             ->(value){ { column => value } }
           end
 
+          def gteq(column)
+            ->(value){ ::Sequel.lit("? >= ?", column, value) }
+          end
+
+          def lteq(column)
+            ->(value){ ::Sequel.lit("? <= ?", column, value) }
+          end
+
           def is_not_null(column,map)
             ->(value){
               if map.has_key?(value)
